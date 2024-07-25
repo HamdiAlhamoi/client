@@ -1,38 +1,120 @@
-.App {
-  text-align: center;
+:root {
+  --color1: rgb(233, 181, 172);
+  --color1-dark: rgb(201, 135, 145);
+  --color1-darker: rgb(170, 129, 122);
+  --color2: rgb(139, 125, 171);
+  --color2-dark: rgb(103, 93, 128);
+  --color2-darker: rgb(68, 61, 85);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sudoku {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  background-color: #20232d;
+  padding: 50px;
+  height: 100vh;
+}
+
+.tile {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 32px;
+  outline: none;
+  background-color: var(--color1);
+  border: 2px solid black;
+  margin-left: -1px;
+  margin-top: -1px;
+}
+
+.taken {
+  width: 40px;
+  height: 40px;
+  font-size: 32px;
+  text-align: center;
+
+  background-color: var(--color1-dark);
+  color: var(--color2-darker);
+}
+
+.initial {
+  margin-left: -1px;
+  margin-top: -1px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 32px;
+  outline: none;
+  background-color: var(--color1-darker);
+  border: 2px solid black;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(9, 0fr);
+  padding: 20px;
+}
+.interface {
+  width: 50%;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+.info-interface {
+  width: 250px;
+  height: 40px;
+  text-align: center;
+  font-size: 24px;
+  outline: none;
+  color: var(--color2-darker);
+  background-color: var(--color1);
+  border: 2px solid var(--color2-dark);
+  margin-bottom: 20px;
+}
+.action-interface {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn {
+  background-color: var(--color1);
+  padding: 8px 24px;
+  border: 2px solid var(--color2-dark);
+  border-radius: 8px;
+  color: var(--color2-dark);
+  font-size: 18px;
+  transition: 0.1s all ease-in-out;
+}
+.btn:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background-color: var(--color1-dark);
+}
+
+.difficulty-select {
+  background-color: var(--color1-dark);
+  padding: 8px 24px;
+  border: 2px solid var(--color2-dark);
+  border-radius: 8px;
+  color: var(--color2-dark);
+  font-size: 18px;
+  transition: 0.1s all ease-in-out;
+}
+
+.timer {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: red;
 }
